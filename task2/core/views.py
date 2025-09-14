@@ -1,13 +1,10 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, redirect
 import datetime
 
 def Home(request):
-    template = loader.get_template('home.html')
-    return HttpResponse(template.render({}, request))
+    return render(request, 'home.html')
 
 def Developers(request):
-    template = loader.get_template('developer_list.html')
     context = {
     "developers": [
         {
@@ -33,10 +30,9 @@ def Developers(request):
         },
      ]
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'developer_list.html', context)
 
 def CV(request, cv_id):
-    template = loader.get_template('developer_cv.html')
     developers = [
         {
             "id": 1,
@@ -63,4 +59,7 @@ def CV(request, cv_id):
 
     developer = next((dev for dev in developers if dev["id"] == cv_id), None)
 
-    return HttpResponse(template.render({"developer": developer}, request))
+    if (developer == None):
+        return redirect('Developers')
+
+    return render(request, 'developer_cv.html', {"developer": developer})

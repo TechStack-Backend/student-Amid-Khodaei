@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Developers{% endblock %}
+
+{% block header %}Developers{% endblock %}
+
+{% block content %}
+    <ul> {% for item in developers %}
+         <li style="display: grid; grid-template-columns: 1fr 0.5fr; width: 50%; margin: auto;">
+            <span style="white-space: nowrap;">{{ item.first_name }} {{ item.last_name }} :</span>
+            <ul>
+                {% for skill in skills %}
+                    {% if skill.developers_id == item.id %}
+                        <li>
+                            <span>{{ skill.title }}</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+        <br><br>
+     {% endfor %}
+     </ul>
+
+     <a href="/">
+        <button style="margin-left: 47%; margin-top: 50px; padding: 18px 36px;">
+            Home
+        </button>
+    </a>
+{% endblock %}

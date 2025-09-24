@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block header %}Projects{% endblock %}
+
+{% block content %}
+    <ul> {% for project in projects %}
+         <li style="display: grid; grid-template-columns: 1fr 0.5fr; width: 50%; margin: auto;">
+            <span style="white-space: nowrap;">{{ project.title }} :</span>
+            <ul>
+                {% for dev in project.developers.all %}
+                    <p>{{ dev.first_name }} {{ dev.last_name }}</p>
+                {% endfor %}
+            </ul>
+        </li>
+        <br><br>
+     {% endfor %}
+    </ul>
+
+    <a href="/">
+        <button style="margin-left: 47%; margin-top: 50px; padding: 18px 36px;">
+            Home
+        </button>
+    </a>
+{% endblock %}

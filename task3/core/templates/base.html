@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1 style="text-align: center;">{% block header %}My Website{% endblock %}</h1>
+        <nav>
+            <a href="/add_project/"; style="margin-left: 5%;">add_project</a>
+            <a href="/add_developer/"; style="margin-left: 2%;">add_developer</a>
+            <a href="/"; style="margin-left: 60%;">Home</a>
+            <a href="/Developers/"; style="margin-left: 2%;">Developers</a>
+            <a href="/Projects/"; style="margin-left: 2%;">Projects</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        {% block content %}
+        <!-- محتوای مخصوص هر صفحه اینجا میاد -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p style="position: fixed; bottom: 0; right: 0; left: 0; text-align: center;">Made by <span style="color: aqua;">Quaalla</span></p>
+    </footer>
+
+</body>
+</html>

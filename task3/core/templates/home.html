@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block header %}Welcome{% endblock %}
+
+{% block content %}
+    <a href="/Developers/">
+        <button style="margin-left: 10%; margin-top: 20%; padding: 18px 36px;">
+            Developers
+        </button>
+    </a>
+    <a href="/Projects/">
+        <button style="margin-left: 15%; margin-top: 20%; padding: 18px 36px;">
+            Projects
+        </button>
+    </a>
+    <a href="/add_project/">
+        <button style="margin-left: 15%; margin-top: 20%; padding: 18px 36px;">
+            add_project
+        </button>
+    </a>
+    <a href="/add_developer/">
+        <button style="margin-left: 15%; margin-top: 20%; padding: 18px 36px;">
+            add_developer
+        </button>
+    </a>
+{% endblock %}

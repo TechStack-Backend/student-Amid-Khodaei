@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}CVs{% endblock %}
+
+{% block header %}Personal CV{% endblock %}
+
+{% block content %}
+    <ul style="text-align: center;">
+        <p>{{ developer.username }}</p>
+        <p>{{ developer.first_name }} {{ developer.last_name }}</p>
+    </ul>
+    <ul style="margin-left: 400px;">
+        <p>Skills:</p>
+    </ul>
+    <ul style="display: flex; gap: 20px; list-style: none; padding: 0; justify-content: center;">
+        {% for item in developer.skills %}
+            <span>{{item}} </span>
+        {% endfor %}
+    </ul>
+
+     <a href="/Developers/">
+        <button style="margin-left: 620px; margin-top: 50px; padding: 18px 36px;">
+            Back
+        </button>
+    </a>
+{% endblock %}
